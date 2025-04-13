@@ -12,6 +12,8 @@ import {IVotes} from "lib/openzeppelin-contracts/contracts/governance/utils/IVot
 import {TimelockController} from "lib/openzeppelin-contracts/contracts/governance/TimelockController.sol";
 
 contract GovernerDAO is Governor, GovernorSettings, GovernorCountingSimple, GovernorVotes, GovernorVotesQuorumFraction, GovernorTimelockControl {
+
+    // Here we can allow to provide the quorum percentage!!!
     constructor(IVotes _token, TimelockController _timelock)
         Governor("GovernorDAO")
         GovernorSettings(1 /* 1 block */, 50400 /* 1 week */, 0)
