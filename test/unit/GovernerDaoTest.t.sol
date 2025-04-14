@@ -71,6 +71,7 @@ contract GovernorDAOTest is Test{
 
     address public VOTER = makeAddr("VOTER");
     address public NONHOLDER_VOTER = makeAddr("NONHOLDER_VOTER");
+    address public PROPOSER = makeAddr("PROPOSER");
 
     address[] proposers;
     address[] executors;
@@ -234,6 +235,7 @@ contract GovernorDAOTest is Test{
     // Execution State //
     ///////////////////
     // This functions covers complete working flow of DAO contract
+    // Here proposer
     function test_checkExecutionState() public{
         // 1. propose to DAO -> Create a proposal
         uint256 replaceNum = 6969;
@@ -242,7 +244,13 @@ contract GovernorDAOTest is Test{
         targets.push(address(box));
         values.push(0);
         callData.push(functionData);
+
+        vm.prank(PROPOSER);
         uint256 proposalId = governer.propose(targets, values, callData, description);
+
+        // get the proposer address -> Not the VOTER
+        console.log("Proposer address:", governer.proposalProposer(proposalId));
+
 
         console.log("Current state of proposal:", uint256(governer.state(proposalId))); // pending
 
@@ -281,5 +289,10 @@ contract GovernorDAOTest is Test{
 
         assert(box.getNum() == replaceNum);
         console.log("The Change number is:", box.getNum());
+    }
+
+
+    function test_getterFunctions() public{
+        console.log(governer.proposalThreshold());
     }
 }

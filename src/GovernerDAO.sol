@@ -16,7 +16,7 @@ contract GovernerDAO is Governor, GovernorSettings, GovernorCountingSimple, Gove
     // Here we can allow to provide the quorum percentage!!!
     constructor(IVotes _token, TimelockController _timelock)
         Governor("GovernorDAO")
-        GovernorSettings(1 /* 1 block */, 50400 /* 1 week */, 0)
+        GovernorSettings(1 /* 1 block */, 50400 /* 1 week */, 1 /*1 */)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(4)
         GovernorTimelockControl(_timelock)
