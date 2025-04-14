@@ -13,10 +13,10 @@ import {TimelockController} from "lib/openzeppelin-contracts/contracts/governanc
 
 contract GovernerDAO is Governor, GovernorSettings, GovernorCountingSimple, GovernorVotes, GovernorVotesQuorumFraction, GovernorTimelockControl {
 
-    // Here we can allow to provide the quorum percentage!!!
+    // Here we can set proposal threshold and quorum percentage!!!
     constructor(IVotes _token, TimelockController _timelock)
         Governor("GovernorDAO")
-        GovernorSettings(1 /* 1 block */, 50400 /* 1 week */, 1 /*1 */)
+        GovernorSettings(1 /* 1 block */, 50400 /* 1 week */, 0 /*proposal threshold */)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(4)
         GovernorTimelockControl(_timelock)

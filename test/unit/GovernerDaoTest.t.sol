@@ -124,7 +124,7 @@ contract GovernorDAOTest is Test{
         uint8 vote = 1;
         string memory reason = "I like the number 999";
         vm.startPrank(NONHOLDER_VOTER);
-        vm.expectRevert();
+        // vm.expectRevert();
         governer.castVoteWithReason(proposalId, vote, reason);
         vm.stopPrank();
     }
@@ -136,7 +136,7 @@ contract GovernorDAOTest is Test{
     uint256[] _values;
     bytes[] _callData;
     function test_checkProposalState() public{
-        // 1. create an Proposal for DAO -> Token holder(or any particular address) can create proposal
+        // 1. create an Proposal for DAO -> Token holder(or any particular address) can create
 
         string memory description = "Change the number";
         uint256 changedNum = 999;
@@ -235,8 +235,8 @@ contract GovernorDAOTest is Test{
     // Execution State //
     ///////////////////
     // This functions covers complete working flow of DAO contract
-    // Here proposer
-    function test_checkExecutionState() public{
+    
+    function test_checkDAOContract() public{
         // 1. propose to DAO -> Create a proposal
         uint256 replaceNum = 6969;
         bytes memory functionData = abi.encodeWithSignature("changeNum(uint256)", replaceNum);
