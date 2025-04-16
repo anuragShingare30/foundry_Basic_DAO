@@ -12,6 +12,8 @@ import {TimeLock} from "src/TimeLock.sol";
 
 /**
  @notice GovernorDAOTest test contract
+ @author anurag shingare
+ 
  * Here we will follow the basic DAO protocol mechanism:
     1. Creating Proposal -> Any token holder(delegated) can create proposal
     2. Casting Vote -> After the delay, the proposal becomes Active. Vote started

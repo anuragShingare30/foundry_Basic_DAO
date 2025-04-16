@@ -23,7 +23,7 @@
 
 
 1. **Create Governance Token**:
-    - This token represents voting power. 
+    - This token can be used to represents voting power. 
     - Whoever holds it can vote on proposal in the DAO.(`Depends on rules`)
 
 2. **Basic DAO contract(Core contract)**:
@@ -86,7 +86,7 @@
 # Basic DAO protocol mechanism and Different state behaviour
 
 1. **Creating Proposal** -> Any token holder(delegated) can create proposal
-2. **Casting Vote** -> After the delay, the proposal becomes Active. Vote started
+2. **Casting Vote** -> After voting delay, the proposal becomes Active. Vote started
 3. **queuing a proposal** -> If a timelock was set up, the first step to execution is queueing
 4. **Executing** -> Once Enough votes and quorum was reached, protocol will execute the function automatically
 

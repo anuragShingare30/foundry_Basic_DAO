@@ -11,6 +11,31 @@ import {GovernorVotesQuorumFraction} from "lib/openzeppelin-contracts/contracts/
 import {IVotes} from "lib/openzeppelin-contracts/contracts/governance/utils/IVotes.sol";
 import {TimelockController} from "lib/openzeppelin-contracts/contracts/governance/TimelockController.sol";
 
+/**
+ @notice GovernerDAO contract
+ @author anurag shingare
+ * GovernerDAO an core contract of DAO protocol that performs all the main functions for DAO protocol
+ * Contract contains the function like createProposal(), castVote(), queue() and execute()
+ * This are the some of the main function required for basic DAO protocol
+ @dev GovernerDAO contract is one of the main and core contract for DAO mechanism.
+
+ @notice GovernorSettings(VOTING_DELAY, VOTING_PERIOD, PROPOSAL_THRESHOLD)
+ * VOTING_DELAY -> 1 block
+ * VOTING_PERIOD -> 50400(1 week)
+ * PROPOSAL_THRESHOLD -> 0/1/2 (depends on protocol rule)
+
+ @dev Different voting phase/state in DAO protocol
+    Pending,    //0
+    Active,     //1
+    Canceled,   //2
+    Defeated,   //3
+    Succeeded,  //4
+    Queued,     //5
+    Expired,    //6
+    Executed    //7
+ */
+
+
 contract GovernerDAO is Governor, GovernorSettings, GovernorCountingSimple, GovernorVotes, GovernorVotesQuorumFraction, GovernorTimelockControl {
 
     // Here we can set proposal threshold and quorum percentage!!!

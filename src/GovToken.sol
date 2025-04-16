@@ -9,6 +9,7 @@ import {Ownable} from "lib/openzeppelin-contracts/contracts/access/Ownable.sol";
 
 /**
  @notice GovToken contract
+ @author anurag shingare
  * This contract is the basic Governor token used for our DAO contract!!!
  * The contract will contain all the basice minting and burning function
  */
